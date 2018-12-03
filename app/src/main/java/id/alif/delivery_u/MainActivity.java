@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,8 +29,9 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SignInButton loginBot;
+    private Button loginBot;
     private FirebaseAuth mAuth;
+    private TextView haha;
     private static int RC_SIGN_IN = 2;
     private static String TAG = "logindong";
     GoogleSignInClient mGoogleSignInClient;
@@ -41,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
+        haha = findViewById(R.id.akuna2);
+
+        haha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "daftar", Toast.LENGTH_SHORT).show();
+            }
+        });
         loginBot = findViewById(R.id.signInBut);
 
         loginBot.setOnClickListener(new View.OnClickListener() {
