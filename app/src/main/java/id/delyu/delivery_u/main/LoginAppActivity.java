@@ -1,13 +1,15 @@
-package id.delyu.delivery_u;
+package id.delyu.delivery_u.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class DaftarActivity extends AppCompatActivity {
+import id.delyu.delivery_u.R;
+
+public class LoginAppActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar);
+        setContentView(R.layout.activity_loginApp);
     }
 }

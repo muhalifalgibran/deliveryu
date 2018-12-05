@@ -1,7 +1,9 @@
-package id.delyu.delivery_u;
+package id.delyu.delivery_u.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import id.delyu.delivery_u.R;
 
 public class SecondActivity extends AppCompatActivity {
 

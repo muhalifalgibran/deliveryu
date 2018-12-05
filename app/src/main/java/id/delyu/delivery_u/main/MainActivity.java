@@ -1,4 +1,4 @@
-package id.delyu.delivery_u;
+package id.delyu.delivery_u.main;
 
 
 import android.content.Intent;
@@ -23,6 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import id.delyu.delivery_u.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         loginApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DaftarActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginAppActivity.class));
             }
         });
 
