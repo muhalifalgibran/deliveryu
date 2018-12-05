@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background_1"
     android:layout_height="match_parent">
 
     <Button
@@ -13,6 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/fonts"
         android:background="@drawable/button_bulat"
         android:text="Login Google"
         android:textColor="@color/colorPrimary"
@@ -29,6 +31,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_bulat"
+        android:fontFamily="@font/fonts"
         android:src="@drawable/ic_launcher_background"
         android:text="Login"
         android:textColor="@color/colorPrimary"
@@ -38,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signInBut" />
 
     <TextView
+        android:fontFamily="@font/fonts"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,6 +64,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/fonts"
         android:text="Let's Get Started"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
@@ -74,10 +79,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+
         android:gravity="center_horizontal"
         android:text="Delivery Cepat Harga Bersahabat"
         android:textColor="@color/colorPrimary"
-        android:fontFamily="@string/common_open_on_phone"
+        android:fontFamily="@font/fonts"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -91,10 +97,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/fonts"
         android:text="Belum Punya Akun?"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInBut2" />
 
@@ -106,6 +113,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="Daftar?"
+        android:fontFamily="@font/fonts"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

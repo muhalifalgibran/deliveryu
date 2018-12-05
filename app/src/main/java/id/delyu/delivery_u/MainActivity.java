@@ -1,9 +1,8 @@
-package id.alif.delivery_u;
+package id.delyu.delivery_u;
 
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +27,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button loginBot;
+    private Button loginGoogle;
+    private Button loginApp;
     private FirebaseAuth mAuth;
     private TextView haha;
     private static int RC_SIGN_IN = 2;
@@ -43,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
+        loginGoogle = findViewById(R.id.signInBut);
+        loginApp = findViewById(R.id.signInBut2);
         haha = findViewById(R.id.akuna2);
 
         haha.setOnClickListener(new View.OnClickListener() {
@@ -51,9 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "daftar", Toast.LENGTH_SHORT).show();
             }
         });
-        loginBot = findViewById(R.id.signInBut);
 
-        loginBot.setOnClickListener(new View.OnClickListener() {
+        loginApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DaftarActivity.class));
+            }
+        });
+
+        loginGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn();
@@ -86,11 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth.addAuthStateListener(mAuthListener);
     }
-
-//    GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestIdToken(getString(R.string.default_web_client_id))
-//            .requestEmail()
-//            .build();
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();

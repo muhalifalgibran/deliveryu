@@ -1,4 +1,4 @@
-package id.alif.delivery_u;
+package id.delyu.delivery_u;
 
 import org.junit.Test;
 

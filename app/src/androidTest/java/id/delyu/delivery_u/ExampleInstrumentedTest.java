@@ -1,4 +1,4 @@
-package id.alif.delivery_u;
+package id.delyu.delivery_u;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
