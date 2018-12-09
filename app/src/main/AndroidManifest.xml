@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.SecondActivity" />
-        <activity android:name=".main.LoginAppActivity"></activity>
+        <activity android:name=".main.LoginAppActivity" />
+        <activity android:name=".main.DaftarActivity" />
+        <activity android:name=".main.LandingActivity"></activity>
     </application>
 
 </manifest>

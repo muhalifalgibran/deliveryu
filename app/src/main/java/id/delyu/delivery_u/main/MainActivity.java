@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         haha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "daftar", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, DaftarActivity.class));
             }
         });
 
@@ -73,12 +73,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null){
-                    startActivity(new Intent(MainActivity.this, SecondActivity.class));
+                    startActivity(new Intent(MainActivity.this, LandingActivity.class));
                 }
             }
         };
-
-
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -92,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         mAuth.addAuthStateListener(mAuthListener);
     }
 
@@ -110,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
+
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Toast.makeText(this,"something when wrong..", Toast.LENGTH_SHORT);

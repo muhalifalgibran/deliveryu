@@ -10,12 +10,12 @@ public class DbHelper extends SQLiteOpenHelper {
     public static int DB_VERSION = 1;
 
     public DbHelper(Context context) {
-        super(context,DB_NAME,null,DB_VERSION);
+        super(context,DB_NAME,null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String mahasiswa = "CREATE TABLE mahasiswa(_id INTEGER PRIMARY KEY," +
+        String mahasiswa = "CREATE TABLE mahasiswa(_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "username TEXT," +
                 "namaLengkap TEXT," +
                 "alamat TEXT," +
@@ -26,9 +26,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (newVersion == 2 && oldVersion == 1){
 
-        }
     }
 
 
