@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import id.delyu.delivery_u.R;
 import id.delyu.delivery_u.adapter.RvAdapterPaket;
 import id.delyu.delivery_u.main.DaftarActivity;
+import id.delyu.delivery_u.main.DetailActivity;
 import id.delyu.delivery_u.main.LandingActivity;
 import id.delyu.delivery_u.main.MainActivity;
 
@@ -99,5 +100,13 @@ public class Paket extends Fragment {
 
     }
 
+    public void sendMessage(Context context,String nama,String harga,String nomer,String gambar) {
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra("nama", nama);
+        intent.putExtra("harga", harga);
+        intent.putExtra("nomer", nomer);
+        intent.putExtra("gambar", gambar);
+        context.startActivity(intent);
+    }
 
 }

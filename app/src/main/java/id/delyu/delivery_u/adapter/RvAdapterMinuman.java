@@ -1,12 +1,9 @@
 package id.delyu.delivery_u.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +12,13 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import id.delyu.delivery_u.R;
+import id.delyu.delivery_u.fragment.Makanan;
 import id.delyu.delivery_u.fragment.Paket;
-import id.delyu.delivery_u.main.LandingActivity;
 
-public class RvAdapterPaket extends RecyclerView.Adapter<RvAdapterPaket.ViewHolder> {
+public class RvAdapterMinuman  extends RecyclerView.Adapter<RvAdapterMinuman.ViewHolder> {
 
     private ArrayList<String> gambarMakanan;
     private ArrayList<String> namaPaket;
@@ -34,8 +29,8 @@ public class RvAdapterPaket extends RecyclerView.Adapter<RvAdapterPaket.ViewHold
     String nama;
     String harga, nomer,gambar;
 
-    public RvAdapterPaket(Context context, ArrayList<String> gambarMakanan,ArrayList<String> namaPaket,ArrayList<String> hargaPaket,
-                          ArrayList<String> noTelp){
+    public RvAdapterMinuman(Context context, ArrayList<String> gambarMakanan,ArrayList<String> namaPaket,ArrayList<String> hargaPaket,
+                            ArrayList<String> noTelp){
         this.gambarMakanan = gambarMakanan;
         this.namaPaket = namaPaket;
         this.hargaPaket = hargaPaket;
@@ -45,14 +40,14 @@ public class RvAdapterPaket extends RecyclerView.Adapter<RvAdapterPaket.ViewHold
 
     @NonNull
     @Override
-    public RvAdapterPaket.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RvAdapterMinuman.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.paket_list,viewGroup, false);
-        ViewHolder holder = new ViewHolder(view);
+        RvAdapterMinuman.ViewHolder holder = new RvAdapterMinuman.ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RvAdapterPaket.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RvAdapterMinuman.ViewHolder viewHolder, int i) {
         Picasso.get()
                 .load(gambarMakanan.get(i))
                 .into(viewHolder.gambarPaket);
@@ -61,15 +56,16 @@ public class RvAdapterPaket extends RecyclerView.Adapter<RvAdapterPaket.ViewHold
         viewHolder.hargaPaket.setText(hargaPaket.get(i));
 
         pesanan = "https://api.whatsapp.com/send?phone="+noTelp.get(i)+"&text=%5B%20dipesan%20via%20Delivery-U%20%5D%0A%0APesen "+namaPaket.get(i);
-         nama = namaPaket.get(i);
-         harga = hargaPaket.get(i);
-         nomer = noTelp.get(i);
-         gambar = gambarMakanan.get(i);
+        nama = namaPaket.get(i);
+        harga = hargaPaket.get(i);
+        nomer = noTelp.get(i);
+        gambar = gambarMakanan.get(i);
         viewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //new Paket().toWhatsApp(context, pesanan);
+               //new Makanan().toWhatsApp(context, pesanan);
                 new Paket().sendMessage(context, nama,harga,nomer,gambar);
+
             }
         });
     }
@@ -94,6 +90,4 @@ public class RvAdapterPaket extends RecyclerView.Adapter<RvAdapterPaket.ViewHold
 
         }
     }
-
-
 }

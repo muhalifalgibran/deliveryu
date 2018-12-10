@@ -9,6 +9,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="customBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background"> @color/colorPrimary </item>
+    </style>
+
 
 
 

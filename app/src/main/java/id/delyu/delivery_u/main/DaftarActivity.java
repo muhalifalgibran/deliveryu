@@ -53,17 +53,6 @@ public class DaftarActivity extends AppCompatActivity {
             }
         });
 
-//        M_deliveryU db = new M_deliveryU(this);
-//        List<Mahasiswa> mahas = db.tampil();
-//
-//        for (Mahasiswa p: mahas){
-//            Log.i("ahaha", p.getAlamat());
-//        }
-//
-//        while (db.getAllMahasiswaCursor2().moveToNext()){
-//            String name = db.getAllMahasiswaCursor2().getString(db.getAllMahasiswaCursor2().getColumnIndex("username"));
-//            Log.i("ahaha", name);
-//        }
     }
 
 

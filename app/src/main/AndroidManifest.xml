@@ -21,7 +21,8 @@
         <activity android:name=".main.SecondActivity" />
         <activity android:name=".main.LoginAppActivity" />
         <activity android:name=".main.DaftarActivity" />
-        <activity android:name=".main.LandingActivity"></activity>
+        <activity android:name=".main.LandingActivity" />
+        <activity android:name=".main.DetailActivity"></activity>
     </application>
 
 </manifest>

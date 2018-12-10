@@ -9,7 +9,15 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.zip.Inflater;
 
 import id.delyu.delivery_u.R;
 import id.delyu.delivery_u.adapter.LandingAdapter;
@@ -28,8 +36,11 @@ public class LandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
 
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+
         tabLayout = (TabLayout)findViewById(R.id.tablayoutid);
-        appBarLayout = (AppBarLayout) findViewById(R.id.appbarid);
+       // appBarLayout = (AppBarLayout) findViewById(R.id.app);
         viewPager = (ViewPager) findViewById(R.id.viewpagerid);
 
         LandingAdapter adapter = new LandingAdapter(getSupportFragmentManager());
@@ -42,17 +53,21 @@ public class LandingActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-    public void toWhatsApp(){
-        //PackageManager pm = getApplicationContext().getPackageManager();
-            Intent sendIntent = new Intent(Intent.ACTION_SEND);
-           // PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
-            sendIntent.setPackage("com.whatsapp");
-           // sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-            sendIntent.setType("text/plain");
-            startActivity(Intent.createChooser(sendIntent, "Share with"));
-
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuLogout:
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(this, "Akun Logout", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
